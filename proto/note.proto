@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package note;
+
+option go_package = "./pb";
+
+service Note{
+  rpc Create(CreateNoteRequest) returns (CreateNoteResponse);
+}
+
+message CreateNoteRequest{
+  string schema = 1;
+  string text = 2;
+}
+
+message CreateNoteResponse{
+  uint64 id = 1;
+  string schema = 2;
+  string text = 3;
+  string createdTime = 4;
+}
